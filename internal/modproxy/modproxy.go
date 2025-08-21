@@ -9,6 +9,7 @@ import (
 	"net/http"
 	neturl "net/url"
 	"os"
+	"os/exec"
 	"path"
 	"path/filepath"
 	"runtime"
@@ -27,7 +28,7 @@ import (
 // Proxies returns the module proxies.
 func Proxies() []string {
 	var proxies []string
-	if s := os.Getenv("GOPROXY"); s != "" {
+	if s := getEnv("GOPROXY"); s != "" {
 		for _, proxy := range strings.Split(s, ",") {
 			proxy = strings.TrimSpace(proxy)
 			if proxy != "" && proxy != "direct" {
@@ -39,6 +40,22 @@ func Proxies() []string {
 		proxies = append(proxies, "https://proxy.golang.org")
 	}
 	return proxies
+}
+
+func getEnv(key string) string {
+	val := getGoEnv(key)
+	if val == "" {
+		val = os.Getenv(key)
+	}
+	return val
+}
+
+func getGoEnv(key string) string {
+	out, err := exec.Command("go", "env", key).Output()
+	if err != nil {
+		return ""
+	}
+	return strings.TrimSpace(string(out))
 }
 
 // Request sends requests to the module proxies in order and returns
