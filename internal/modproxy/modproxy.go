@@ -22,7 +22,7 @@ import (
 	"golang.org/x/mod/semver"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/icholy/gomajor/internal/packages"
+	"github.com/taurmorchant/gomajor/internal/packages"
 )
 
 // Proxies returns the module proxies.
