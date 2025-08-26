@@ -6,7 +6,7 @@ import (
 
 	"github.com/rogpeppe/go-internal/testscript"
 
-	"github.com/icholy/gomajor/internal/modproxy/testmodproxy"
+	"github.com/taurmorchant/gomajor/internal/modproxy/testmodproxy"
 )
 
 func TestMain(m *testing.M) {

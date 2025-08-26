@@ -22,8 +22,8 @@ import (
 	"golang.org/x/mod/semver"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/icholy/gomajor/internal/goenv"
-	"github.com/icholy/gomajor/internal/packages"
+	"github.com/taurmorchant/gomajor/internal/goenv"
+	"github.com/taurmorchant/gomajor/internal/packages"
 )
 
 // Request sends requests to the module proxies in order and returns

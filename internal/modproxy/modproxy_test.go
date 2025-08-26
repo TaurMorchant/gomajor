@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/icholy/gomajor/internal/modproxy/testmodproxy"
+	"github.com/taurmorchant/gomajor/internal/modproxy/testmodproxy"
 )
 
 func TestModule(t *testing.T) {
